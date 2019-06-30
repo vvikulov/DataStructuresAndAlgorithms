@@ -1,67 +1,67 @@
 ﻿namespace DSaA
 {
-    class Stack<T>
-    {
-        private T[] stack;
-        public int topIndex;
-        private int size;
-
-        public Stack(int size)
-        {
-            stack = new T[size];
-            topIndex = -1;
-            this.size = size;
-        }
-
-        public void push(T val)
-        {
-            if(!isFull())
-            {
-                topIndex++;
-                stack[topIndex] = val;
-            }
-        }
-
-        public T pop()
-        {
-            if(!isEmpty())
-            {
-                T val = stack[topIndex];
-                stack[topIndex] = default(T);
-                topIndex--;
-                return val;
-            }
-            else
-            {
-                return default(T);
-            }
-        }
-
-        public T peek()
-        {
-            if(!isEmpty())
-            {
-                return stack[topIndex];
-            }
-            else
-            {
-                return default(T);
-            }
-        }
-
-        public bool isFull()
-        {
-            return topIndex == size - 1;
-        }
-
-        public bool isEmpty()
-        {
-            return topIndex < 0;
-        }
-    }
-
     class ExpressionParser
     {
+        class Stack<T>
+        {
+            private T[] stack;
+            public int topIndex;
+            private int size;
+
+            public Stack(int size)
+            {
+                stack = new T[size];
+                topIndex = -1;
+                this.size = size;
+            }
+
+            public void push(T val)
+            {
+                if(!isFull())
+                {
+                    topIndex++;
+                    stack[topIndex] = val;
+                }
+            }
+
+            public T pop()
+            {
+                if(!isEmpty())
+                {
+                    T val = stack[topIndex];
+                    stack[topIndex] = default(T);
+                    topIndex--;
+                    return val;
+                }
+                else
+                {
+                    return default(T);
+                }
+            }
+
+            public T peek()
+            {
+                if(!isEmpty())
+                {
+                    return stack[topIndex];
+                }
+                else
+                {
+                    return default(T);
+                }
+            }
+
+            public bool isFull()
+            {
+                return topIndex == size - 1;
+            }
+
+            public bool isEmpty()
+            {
+                return topIndex < 0;
+            }
+        }
+
         private int precedence(char symbol)
         {
             switch(symbol)
